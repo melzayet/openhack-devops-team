@@ -51,6 +51,6 @@ stages:
         deployToSlotOrASE: true
         ResourceGroupName: 'openhackcoach11rg'
         SlotName: 'staging'
-        DockerNamespace: 'openhackcoach11acr.azurecr.io'
+        DockerNamespace: '$(acr-server)'
         DockerRepository: 'devopsoh/api-poi'
         DockerImageTag: '$(tag)'
