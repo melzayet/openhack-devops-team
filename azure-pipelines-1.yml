@@ -8,19 +8,8 @@ trigger:
     - master
   paths:
     include:
-    - apis/poi
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'playground'
-    appType: 'webAppContainer'
-    WebAppName: 'openhackcoach11poi'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'openhackcoach11rg'
-    SlotName: 'staging'
-    DockerNamespace: 'openhackcoach11acr.azurecr.io'
-    DockerRepository: 'devopsoh/api-poi'
-    DockerImageTag: '$(tag)'
+      - apis/poi
+
 resources:
 - repo: self
 
@@ -53,3 +42,15 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'playground'
+        appType: 'webAppContainer'
+        WebAppName: 'openhackcoach11poi'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'openhackcoach11rg'
+        SlotName: 'staging'
+        DockerNamespace: 'openhackcoach11acr.azurecr.io'
+        DockerRepository: 'devopsoh/api-poi'
+        DockerImageTag: '$(tag)'
