@@ -27,7 +27,7 @@ namespace poi.Controllers
         [Produces("application/json", Type = typeof(Healthcheck))]
         public IActionResult Get()
         {
-            _logger.LogInformation(LoggingEvents.Healthcheck, "Healthcheck one Requested");
+            _logger.LogInformation(LoggingEvents.Healthcheck, "Healthcheck two Requested");
             return Ok(new Healthcheck());
         }
     }
