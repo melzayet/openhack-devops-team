@@ -19,6 +19,10 @@ jobs:
         login-server: openhackcoachrw33acr.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
+     
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZDEVRG }}
 
     - run: |
         docker build apis/poi/web/ -t openhackcoachrw33acr.azurecr.io/devopsoh/api-poi:${{ github.sha }}
