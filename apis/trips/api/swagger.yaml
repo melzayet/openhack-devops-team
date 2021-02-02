@@ -17,7 +17,7 @@ paths:
       description: "Returns healthcheck for systems looking to ensure API is up and operational"
       responses:
         200:
-          description: "Service is healthy"
+          description: "Service is super healthy"
           schema:
             $ref: "#/definitions/Healthcheck"
         default:
